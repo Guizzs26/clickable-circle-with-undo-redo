@@ -1,0 +1,46 @@
+Desenvolva uma aplicação em que:
+
+- o usuário pode clicar em qualquer lugar da página.
+- deve-se renderizar um pequeno círculo na posição clicada.
+- a cada clique, mantém-se os círculos já criados e renderiza-se um novo.
+- crie duas funcionalidades para a aplicação:
+    - desfazer (undo)
+    - refazer (redo)
+
+--- Ideias que tive ---
+
+1. Usuário clicar em qualquer lugar da página passa a ideia de um evento de click.
+
+2. Aqui nos passa a ideia de usar estado, pois quando ocorre re-renderizações através
+da mudança do estado, os dados não são perdidos entre essas re-renderizações (apenas quando
+há unmounting).
+
+3. Funcionalidades de desfazer e refazer...(ainda não pensei sobre).
+
+--- Pensamento na hora de resolver o projeto ---
+
+Primeiro passo: O usuário clicar em algum lugar da página e de alguma forma preciso
+capturar as coodernadas do click do usuário e usar o event listener onClick junto disso.
+
+- Como fiz/pensei?
+
+1. Primeiro tive que fazer a div principal da aplicação ocupar 100% da viewport através do 
+height: 100vh e width: 100vw.
+
+2. Depois disso usei a função handleClickGetCoordinates com a tipagem do evento sendo 
+React.MouseEvent<HTMLDivElement, MouseEvent> através do event listener onClick na div principal.
+
+3. Depois disso, tive acesso através do objeto de evento ao clientX e clientY que são as coordenadas
+de onde o usuário clicou na tela.
+
+4. Por último, setei o estado das coordenadas de forma imutável usando o [...coordinates, {x, y}];
+
+--- // ---
+
+Segundo passo: Agora preciso da que cada clique na tela se torne um 'círculo'.
+
+- Como fiz/pensei?
+
+1. Irei criar um componente novo chamado 'Circle' e irei passar as coordenadas para esse compoenente
+(x e y) através de props.
+
