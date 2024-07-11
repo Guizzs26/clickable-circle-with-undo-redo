@@ -1,4 +1,9 @@
 .appContainer {
   height: 100vh;
   width: 100vw;
+
+  position: relative;
+
+  /* Do not create a scroll bar if the circle leaves the screen */
+  overflow: hidden;
 }

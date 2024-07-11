@@ -1,17 +1,23 @@
 Desenvolva uma aplicação em que:
 
-- o usuário pode clicar em qualquer lugar da página.
-- deve-se renderizar um pequeno círculo na posição clicada.
-- a cada clique, mantém-se os círculos já criados e renderiza-se um novo.
-- crie duas funcionalidades para a aplicação:
-    - desfazer (undo)
-    - refazer (redo)
+1 - O usuário pode clicar em qualquer lugar da página.
 
---- Ideias que tive ---
+2 - Deve-se renderizar um pequeno círculo na posição clicada.
 
-1. Usuário clicar em qualquer lugar da página passa a ideia de um evento de click.
+2.1 - A cada clique, mantém-se os círculos já criados e renderiza-se um novo.
 
-2. Aqui nos passa a ideia de usar estado, pois quando ocorre re-renderizações através
+3 - Crie duas funcionalidades para a aplicação:
+    - Desfazer (undo)
+    - Refazer (redo)
+
+--- Ideias iniciais ---
+
+1. Quando o usuário clicar em qualquer ponto da página, será capturada a posição (x,y) onde ele clicou.
+Isso passa uma ideia de um event listener de clique (onClick) e que o elemento pai é o 'body' ou um container
+com 100% do viewport.
+
+2 e 2.1. Aqui nos passa a ideia de usar estado para armazenar
+os dados , pois quando ocorre re-renderizações através
 da mudança do estado, os dados não são perdidos entre essas re-renderizações (apenas quando
 há unmounting).
 
@@ -20,7 +26,7 @@ há unmounting).
 --- Pensamento na hora de resolver o projeto ---
 
 Primeiro passo: O usuário clicar em algum lugar da página e de alguma forma preciso
-capturar as coodernadas do click do usuário e usar o event listener onClick junto disso.
+capturar as coodernadas do clique do usuário e usar o event listener onClick junto disso.
 
 - Como fiz/pensei?
 
@@ -37,10 +43,21 @@ de onde o usuário clicou na tela.
 
 --- // ---
 
-Segundo passo: Agora preciso da que cada clique na tela se torne um 'círculo'.
+Segundo passo: Agora preciso que cada clique na tela se torne um 'círculo'.
 
 - Como fiz/pensei?
 
 1. Irei criar um componente novo chamado 'Circle' e irei passar as coordenadas para esse compoenente
 (x e y) através de props.
+
+2. Basicamente defini a div que representa o círculo como absolute e a div principal como relative,
+agora os círculos são posicionados em relação a tela. Além disso corrigi com o transform() a posição
+correta do círculo em relação ao clique.
+
+--- // ---
+
+Terceiro passo: Agora tenho que criar a funcionalidade de desfazer e refazer
+
+- Como fiz/pensei?
+
 

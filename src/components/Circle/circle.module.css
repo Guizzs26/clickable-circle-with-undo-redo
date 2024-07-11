@@ -1,0 +1,14 @@
+.circle {
+  width: 1.2rem;
+  height: 1.2rem;
+
+  /* Position the circle absolutely in relation to the parent container (the whole screen) */
+  position: absolute;
+
+  /* Center the circle on the clicked point */
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background-color: #9775fa;
+}
