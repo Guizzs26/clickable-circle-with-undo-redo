@@ -23,12 +23,10 @@ export default function App() {
     const x = e.clientX;
     const y = e.clientY;
 
-    console.log(x, y);
-
     const newCoordinates = [...coordinates, { x, y }];
 
     setCoordinates(newCoordinates);
-    setUndoStack([...undoStack, coordinates]);
+    setUndoStack((undoStack) => [...undoStack, coordinates]);
     setRedoStack([]);
   };
 
@@ -39,7 +37,7 @@ export default function App() {
 
       setCoordinates(previousCoordinates);
       setUndoStack(newUndoStack);
-      setRedoStack([...redoStack, coordinates]);
+      setRedoStack((redoStack) => [...redoStack, coordinates]);
     }
   };
 
@@ -50,7 +48,7 @@ export default function App() {
 
       setCoordinates(nextCoordinates);
       setRedoStack(newRedoStack);
-      setUndoStack([...undoStack, coordinates]);
+      setUndoStack((undoStack) => [...undoStack, coordinates]);
     }
   };
 
