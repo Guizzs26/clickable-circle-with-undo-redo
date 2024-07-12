@@ -60,4 +60,27 @@ Terceiro passo: Agora tenho que criar a funcionalidade de desfazer e refazer
 
 - Como fiz/pensei?
 
+Inicialmente, tive dificuldade para pensar e entender a lógica para implementar essas funcionalidades.
 
+Para resolver isso, usei a estrutura de dados 'pilha' (stack),
+que funciona bem para operações de desfazer e refazer. Implementei a 
+funcionalidade da seguinte forma:
+
+Desfazer (undo):
+
+Cada vez que um círculo é adicionado, o estado atual das coordenadas é salvo em uma 
+pilha (undoStack).
+
+Quando o usuário clica em desfazer, removo o último estado da pilha de undo e o uso para 
+atualizar as coordenadas atuais, retornando ao estado anterior.
+
+O estado das coordenadas atual é então adicionado à redoStack, permitindo que essa
+ação possa ser desfeita futuramente.
+
+Refazer (redo):
+
+Quando o usuário clica em refazer, removo o último estado da pilha de redo e o uso para 
+atualizar as coordenadas atuais, voltando ao estado que foi desfeito.
+
+O estado das coordenadas atual é então adicionado novamente à pilha de undo, 
+permitindo que essa ação possa ser desfeita novamente.
